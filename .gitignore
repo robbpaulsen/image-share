@@ -160,4 +160,5 @@ dmypy.json
 .roomodes
 .kilocodemodes
 important_conversations_withLlm/
+docs
 docs/
