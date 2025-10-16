@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Share - Photo Carousel</title>
+    <link rel="stylesheet" href="/carousel-ui/css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+</head>
+<body>
+    <div id="carousel-container">
+        <!-- Two image elements for crossfade effect -->
+        <img id="image-primary" class="carousel-image visible" alt="Event photo">
+        <img id="image-secondary" class="carousel-image hidden" alt="Event photo">
+    </div>
+
+    <!-- No Photos Instruction Screen -->
+    <div id="no-photos-screen" class="hidden">
+        <div class="instruction-content">
+            <h1 class="instruction-heading">Share Your Event Photos!</h1>
+            <div class="instruction-details">
+                <p class="instruction-wifi">Connect to: <strong>ImageShare-Demo</strong></p>
+                <p class="instruction-url">Open: <strong>http://photoshare.local</strong> or <strong>http://10.0.17.1</strong></p>
+            </div>
+            <div id="qr-code-container" class="qr-code"></div>
+        </div>
+    </div>
+
+    <script src="/carousel-ui/js/CarouselApp.js"></script>
+</body>
+</html>

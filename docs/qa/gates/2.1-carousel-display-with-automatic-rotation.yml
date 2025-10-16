@@ -1,0 +1,33 @@
+schema: 1
+story: '2.1'
+story_title: 'Carousel Display with Automatic Rotation'
+gate: PASS
+status_reason: "The implementation is high quality and meets all ACs. The 'no auth' model is secure within the project's design, as endpoints are properly restricted to intended actions (POST for upload, GET for display)."
+reviewer: 'Quinn (Test Architect)'
+updated: '2025-10-15T18:45:00Z'
+waiver: { active: false }
+
+top_issues:
+  - id: "TECH-DEBT-001"
+    severity: low
+    finding: "Photo IDs are not stable. A new UUID is generated for the same photo on each API call."
+    suggested_action: "Consider generating a stable ID from the file's content or name to aid future client-side caching."
+  - id: "PERF-001"
+    severity: low
+    finding: "The /api/photos endpoint reads from the filesystem on every request."
+    suggested_action: "Implement a short-lived in-memory cache to improve scalability and reduce disk I/O."
+
+nfr_validation:
+  security: { status: PASS, notes: "The 'no auth' model is secure within the project's design, as endpoints are properly restricted to intended actions (POST for upload, GET for display)." }
+  performance: { status: PASS, notes: "Performance is adequate for MVP. Caching is recommended for future scaling." }
+  reliability: { status: PASS, notes: "" }
+  maintainability: { status: PASS, notes: "" }
+
+recommendations:
+  future:
+    - action: "Refactor /api/photos to generate stable, content-based IDs for photos."
+      refs: ["apps/api/api/photos.py"]
+    - action: "Implement a caching layer for the /api/photos endpoint."
+      refs: ["apps/api/api/photos.py"]
+    - action: "Create an automated E2E test suite for the carousel UI."
+      refs: ["apps/carousel-ui/"]

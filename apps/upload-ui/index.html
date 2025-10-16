@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Upload Photo - ImageShare</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <h1>Share Your Photo</h1>
+
+        <form id="uploadForm">
+            <!-- Hidden file input -->
+            <input
+                type="file"
+                id="photoInput"
+                name="photo"
+                accept="image/*"
+                hidden
+            >
+
+            <!-- Upload button as label -->
+            <label for="photoInput" class="upload-button" tabindex="0" role="button">
+                <span class="button-text">Upload Photo</span>
+            </label>
+
+            <!-- Thumbnail preview container -->
+            <div id="thumbnailContainer" class="thumbnail-container" hidden>
+                <img id="thumbnailImage" src="" alt="Photo preview">
+            </div>
+
+            <!-- Submit button (shown after photo selected) -->
+            <button
+                type="submit"
+                id="submitButton"
+                class="submit-button"
+                hidden
+            >
+                Submit Photo
+            </button>
+
+            <!-- Loading indicator -->
+            <div id="loadingIndicator" class="loading-indicator" hidden>
+                <div class="spinner"></div>
+                <p>Uploading your photo...</p>
+            </div>
+
+            <!-- Status messages -->
+            <div
+                id="statusMessage"
+                class="status-message"
+                aria-live="polite"
+                role="status"
+            ></div>
+
+            <!-- Upload another button (shown after success) -->
+            <button
+                type="button"
+                id="uploadAnotherButton"
+                class="upload-another-button"
+                hidden
+            >
+                Upload Another Photo
+            </button>
+        </form>
+    </main>
+
+    <script type="module" src="js/app.js"></script>
+</body>
+</html>
