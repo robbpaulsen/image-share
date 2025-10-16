@@ -112,15 +112,3 @@ uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```bash
 pytest apps/api/tests/
 ```
-
-## Production Deployment
-
-For deploying the system on Raspberry Pi devices for production use, see the [Deployment Guide](docs/deployment.md).
-
-The deployment guide covers:
-- Initial setup and installation
-- Systemd service configuration
-- Automatic startup on boot
-- Service management (start/stop/restart)
-- Monitoring and logs
-- Troubleshooting common issues
